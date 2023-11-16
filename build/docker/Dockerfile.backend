@@ -1,0 +1,21 @@
+FROM golang:latest as builder
+WORKDIR /app 
+COPY ./src/backend /app 
+
+ENV PORT=8000
+ENV JWT_SECRET=SuperSuperSuperSecret
+ENV MONGODB_URI=mongodb://root:dev_root_1209@mongodb:27017/
+
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o server .
+
+# Second Stage
+FROM alpine:latest
+WORKDIR / 
+# RUN adduser nonroot;echo "nonroot:nonroot"|chpasswd
+# USER nonroot:nonroot
+COPY --from=builder /app/server /backend-server
+COPY ./src/backend/.env /.env
+EXPOSE 8000
+
+ENTRYPOINT ["/backend-server"]

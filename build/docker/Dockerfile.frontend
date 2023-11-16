@@ -1,0 +1,17 @@
+# Stage 0: Build the React app
+FROM node:latest AS build
+WORKDIR /app
+COPY ./src/frontend .
+RUN node -v
+RUN npm install 
+RUN npm run build
+
+# Stage 2: Create a minimal image for serving the React app
+FROM nginx:alpine
+# RUN addgroup -g 1001 -S appuser && adduser -u 1001 -S appuser -G appuser
+COPY --from=build /app/dist /usr/share/nginx/html
+# RUN chown -R appuser:appuser /usr/share/nginx/html
+EXPOSE 80
+# USER appuser
+CMD ["nginx", "-g", "daemon off;"]
+

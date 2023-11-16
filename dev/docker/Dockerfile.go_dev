@@ -1,0 +1,4 @@
+FROM golang:latest
+WORKDIR /workdir
+
+ENTRYPOINT [ "tail", "-f", "/dev/null" ]
