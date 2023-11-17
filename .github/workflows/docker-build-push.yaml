@@ -9,22 +9,22 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-steps:
-  - name: Checkout Repository
-    uses: actions/checkout 
-
-  - name: Setup Docker Buildx
-    uses: docker/setup-buildx-action
-
-  - name: Login to Docker Hub
-    run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-
-  - name: Build and push Docker image
-    run: |
-      cd ./build 
-      docker buildx create --use 
-      docker buildx inspect default --bootstrap
-      docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend -f docker/Dockerfile.frontend .
-      docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend -f docker/Dockerfile.backend .
-      docker push ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend
-      docker push ${{ secrets.DOCKER_USERNAME }}/devops-project-backend
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@latest 
+    
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@latest
+    
+      - name: Login to Docker Hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    
+      - name: Build and push Docker image
+        run: |
+          cd ./build 
+          docker buildx create --use 
+          docker buildx inspect default --bootstrap
+          docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend -f docker/Dockerfile.frontend .
+          docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend -f docker/Dockerfile.backend .
+          docker push ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend
+          docker push ${{ secrets.DOCKER_USERNAME }}/devops-project-backend
