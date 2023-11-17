@@ -22,6 +22,11 @@ jobs:
       - name: Build and push Docker image
         run: |
           cd ./build 
+          cat<<EOF > ./src/backend/.env 
+          MONGODB_URI=mongodb://root:dev_root_1209@mongodb:27017/
+          JWT_SECRET=${{ secrets.JWT_SECRET }}
+          PORT=8000
+          EOF
           docker buildx create --use 
           docker buildx inspect default --bootstrap
           docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend -f docker/Dockerfile.frontend .
