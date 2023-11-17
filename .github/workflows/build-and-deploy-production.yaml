@@ -43,9 +43,10 @@ jobs:
       
       - name: Deploy to Azure Container App (Production)
         run: |
-          az containerapp create --name production-env \
+          az webapp create --name production-env \
           --resource-group devops-project \
-          --multicontainer-config ./build/docker-compose.yaml \
+          --multicontainer-config-type "compose" \
+          --multicontainer-config-file ./build/docker-compose.yaml \
           --cpu 0.75 \
           --memory 1.5GB
 
