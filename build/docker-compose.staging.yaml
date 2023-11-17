@@ -5,13 +5,13 @@ services:
     ports:
       - 8000:8000
     networks:
-      - stagenet
+      - stage_net
   frontend:
     image: abhirambsn/devops-project-frontend:staging
     ports:
       - 80:80
     networks:
-      - stagenet
+      - stage_net
   mongodb:
     image: mongo:latest
     restart: always
@@ -19,7 +19,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: dev_root_1209
     networks:
-      - stagenet
+      - stage_net
 
 networks:
-  stagenet:
+  stage_net:

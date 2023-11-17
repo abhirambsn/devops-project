@@ -73,7 +73,7 @@ const RegisterPage = () => {
                             name="fullName"
                             value={registrationInfo.fullName}
                             onChange={handleInputChange}
-                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-green-500"
                             required
                         />
                     </div>
@@ -87,7 +87,7 @@ const RegisterPage = () => {
                             name="username"
                             value={registrationInfo.username}
                             onChange={handleInputChange}
-                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-green-500"
                             required
                         />
                     </div>
@@ -101,7 +101,7 @@ const RegisterPage = () => {
                             name="password"
                             value={registrationInfo.password}
                             onChange={handleInputChange}
-                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-green-500"
                             required
                         />
                     </div>
@@ -115,7 +115,7 @@ const RegisterPage = () => {
                             name="confirmPassword"
                             value={registrationInfo.confirmPassword}
                             onChange={handleInputChange}
-                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+                            className="w-full border rounded px-3 py-2 focus:outline-none focus:border-green-500"
                             required
                         />
                     </div>
@@ -123,13 +123,13 @@ const RegisterPage = () => {
                         <p className="text-red-500 text-sm mb-4">{validationMessage}</p>
                     )}
                     <div className="mb-4 text-center">
-                        <Link to="/login" className="text-blue-500 italic hover:underline">
+                        <Link to="/login" className="text-green-500 italic hover:underline">
                             Already have an account? Login here.
                         </Link>
                     </div>
                     <button
                         type="submit"
-                        className="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600 focus:outline-none"
+                        className="bg-green-500 text-white rounded px-4 py-2 w-full hover:bg-green-600 focus:outline-none"
                     >
                         Register
                     </button>

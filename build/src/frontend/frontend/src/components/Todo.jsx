@@ -48,7 +48,7 @@ const Todo = ({ todo, onEdit, onDelete }) => {
             />
             <button
               onClick={handleEdit}
-              className="bg-blue-500 text-white rounded px-4 py-2 mr-2 hover:bg-blue-600 focus:outline-none"
+              className="bg-green-500 text-white rounded px-4 py-2 mr-2 hover:bg-green-600 focus:outline-none"
             >
               Save
             </button>
@@ -65,7 +65,7 @@ const Todo = ({ todo, onEdit, onDelete }) => {
       <div className="mt-4">
         <button
           onClick={() => setEditModalOpen(true)}
-          className="bg-blue-500 text-white rounded px-4 py-2 mr-2 hover:bg-blue-600 focus:outline-none"
+          className="bg-green-500 text-white rounded px-4 py-2 mr-2 hover:bg-green-600 focus:outline-none"
         >
           Edit
         </button>

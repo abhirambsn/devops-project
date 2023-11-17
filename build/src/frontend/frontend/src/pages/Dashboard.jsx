@@ -176,12 +176,12 @@ const Dashboard = () => {
         (!loading ? (
             <div className="min-h-screen flex flex-col">
                 {/* Navbar */}
-                <nav className="bg-blue-500 p-4 text-white flex justify-between items-center">
+                <nav className="bg-green-500 p-4 text-white flex justify-between items-center">
                     <div className="text-2xl font-semibold">DevTodo</div>
                     <div className="flex items-center">
                         <p className="mr-4">Welcome, <strong>{username}</strong></p>
                         <button
-                            className="bg-white text-blue-500 px-4 py-2 rounded"
+                            className="bg-white text-green-500 px-4 py-2 rounded"
                             onClick={handleLogout}
                         >
                             Logout
@@ -221,7 +221,7 @@ const Dashboard = () => {
                         />
                         <button
                             type="submit"
-                            className="bg-blue-500 text-white rounded px-4 py-2 mt-2 hover:bg-blue-600 focus:outline-none"
+                            className="bg-green-500 text-white rounded px-4 py-2 mt-2 hover:bg-green-600 focus:outline-none"
                         >
                             Add Todo
                         </button>
