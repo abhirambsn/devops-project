@@ -29,7 +29,5 @@ jobs:
           EOF
           docker buildx create --use 
           docker buildx inspect default --bootstrap
-          docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend -f docker/Dockerfile.frontend .
-          docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend -f docker/Dockerfile.backend .
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops-project-backend
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend -f docker/Dockerfile.frontend .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend -f docker/Dockerfile.backend .
