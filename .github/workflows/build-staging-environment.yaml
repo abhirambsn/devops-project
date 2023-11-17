@@ -1,4 +1,4 @@
-name: Build Staging Images and Push to Dockerhub
+name: Build Production Imags and Push to Dockerhub
 
 on:
   push:
@@ -29,5 +29,5 @@ jobs:
           EOF
           docker buildx create --use 
           docker buildx inspect default --bootstrap
-          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend:staging -f docker/Dockerfile.frontend .
-          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend:staging -f docker/Dockerfile.backend .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend -f docker/Dockerfile.frontend .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend -f docker/Dockerfile.backend .

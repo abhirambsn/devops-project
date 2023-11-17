@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  backend:
+    image: abhirambsn/devops-project-backend:staging
+    ports:
+      - 8000:8000
+    networks:
+      - prodnet
+  frontend:
+    image: abhirambsn/devops-project-frontend:staging
+    ports:
+      - 80:80
+    networks:
+      - prodnet
+  mongodb:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: dev_root_1209
+    networks:
+      - prodnet
+
+networks:
+  prodnet:
