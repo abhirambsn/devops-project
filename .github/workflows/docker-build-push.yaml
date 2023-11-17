@@ -11,10 +11,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@latest 
+        uses: actions/checkout@v2 
     
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@latest
+        uses: docker/setup-buildx-action@v1
     
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
