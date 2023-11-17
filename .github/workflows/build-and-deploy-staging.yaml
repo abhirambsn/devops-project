@@ -41,11 +41,3 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       
-      - name: Deploy to Azure Container App (Production)
-        run: |
-          az webapp create --name staging-env \
-          --resource-group devops-project \
-          --multicontainer-config-type "compose" \
-          --multicontainer-config-file ./build/docker-compose.staging.yaml \
-          --cpu 0.75 \
-          --memory 1.5GB
