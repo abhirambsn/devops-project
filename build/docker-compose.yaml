@@ -1,17 +1,13 @@
 version: '3.8'
 services:
   backend:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.backend
+    image: abhirambsn/devops-project-backend
     ports:
       - 8000:8000
     networks:
       - prodnet
   frontend:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.frontend
+    image: abhirambsn/devops-project-frontend
     ports:
       - 80:80
     networks:
