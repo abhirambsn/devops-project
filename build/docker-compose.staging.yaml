@@ -3,13 +3,13 @@ services:
   backend:
     image: abhirambsn/devops-project-backend:staging
     ports:
-      - 8000:8000
+      - 8001:8000
     networks:
       - stage_net
   frontend:
     image: abhirambsn/devops-project-frontend:staging
     ports:
-      - 80:80
+      - 81:80
     networks:
       - stage_net
   mongodb:
