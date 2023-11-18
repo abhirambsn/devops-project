@@ -9,7 +9,7 @@ services:
   frontend:
     image: abhirambsn/devops-project-frontend
     ports:
-      - 80:80
+      - 8001:80
     networks:
       - prodnet
   mongodb:

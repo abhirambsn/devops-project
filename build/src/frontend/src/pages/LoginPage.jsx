@@ -66,7 +66,7 @@ const LoginPage = () => {
               name="username"
               value={credentials.username}
               onChange={handleInputChange}
-              className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              className="w-full border rounded px-3 py-2 focus:outline-none focus:border-green-500"
               required
             />
           </div>
@@ -80,18 +80,18 @@ const LoginPage = () => {
               name="password"
               value={credentials.password}
               onChange={handleInputChange}
-              className="w-full border rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+              className="w-full border rounded px-3 py-2 focus:outline-none focus:border-green-500"
               required
             />
           </div>
           <div className="mb-4 text-center">
-            <Link to="/register" className="text-blue-500 italic hover:underline">
+            <Link to="/register" className="text-green-500 italic hover:underline">
               Don't have an account? Register here.
             </Link>
           </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white rounded px-4 py-2 w-full hover:bg-blue-600 focus:outline-none"
+            className="bg-green-500 text-white rounded px-4 py-2 w-full hover:bg-green-600 focus:outline-none"
           >
             Login
           </button>
