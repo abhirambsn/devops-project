@@ -37,6 +37,11 @@ jobs:
     needs: build-and-push
 
     steps:
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v1
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+          
       - name: Apply Kubernetes deployment files
         run: kubectl apply -f ./k8s/
 
