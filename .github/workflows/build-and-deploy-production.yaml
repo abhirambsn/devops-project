@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Apply Kubernetes deployment files
-        run: kubectl apply -f k8s-deployment-files/
+        run: kubectl apply -f ./k8s/
 
       - name: Wait for pods to be ready
         run: kubectl wait --for=condition=Ready pod --all --timeout=300s
