@@ -9,7 +9,7 @@ const LoginPage = () => {
   const history = useNavigate()
 
   const authenticateUser = async (username, password) => {
-    const url = "http://backend.default.svc.cluster.local/login"
+    const url = "/api/login"
     const body = {username, password}
 
     try {

@@ -20,7 +20,7 @@ const Dashboard = () => {
     // Fetch username from local storage or set a default
 
     const getTodos = async (token) => {
-        const url = "http://backend.default.svc.cluster.local/todos"
+        const url = "/api/todos"
         try {
             const resp = await axios.get(url, {
                 headers: {
@@ -40,7 +40,7 @@ const Dashboard = () => {
     }
 
     const getProfile = async (token) => {
-        const url = "http://backend.default.svc.cluster.local/user"
+        const url = "/api/user"
         try {
             const resp = await axios.get(url, {
                 headers: {
@@ -87,7 +87,7 @@ const Dashboard = () => {
     }, [])
 
     const updateInDB = async (id, title, description, completed) => {
-        const url = `http://backend.default.svc.cluster.local/todo/${id}`
+        const url = `/api/todo/${id}`
         const body = {
             title, description, completed
         }
@@ -109,7 +109,7 @@ const Dashboard = () => {
     }
 
     const deleteFromDB = async (id) => {
-        const url = `http://backend.default.svc.cluster.local/todo/${id}`
+        const url = `/api/todo/${id}`
 
         try {
             const resp = await axios.delete(url, {
@@ -128,7 +128,7 @@ const Dashboard = () => {
     }
 
     const insertToDB = async (title, description) => {
-        const url = "http://backend.default.svc.cluster.local/todo"
+        const url = "/api/todo"
         const body = {
             title, description
         }
