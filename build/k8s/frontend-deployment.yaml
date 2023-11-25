@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: docker.io/abhirambsn/devops-project-frontend:staging
+          image: docker.io/abhirambsn/devops-project-frontend:latest
           ports:
             - containerPort: 80
           resources:

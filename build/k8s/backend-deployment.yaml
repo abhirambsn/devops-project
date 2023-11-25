@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: docker.io/abhirambsn/devops-project-backend:staging
+          image: docker.io/abhirambsn/devops-project-backend:latest
           ports:
             - containerPort: 8000
           resources:
