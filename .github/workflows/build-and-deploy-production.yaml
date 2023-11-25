@@ -37,22 +37,22 @@ jobs:
     needs: build-and-push
 
     steps:
-      - name: Set up kubectl
-        uses: azure/setup-kubectl@v1
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
-      
-      - name: Set up kubectl
-        run: |
-          kubectl config view
-          kubectl config use-context orbstack
-          kubectl get nodes
-
+      - name: Checkout Repository
+        uses: actions/checkout@v2 
+        
       - name: Apply Kubernetes deployment files
-        run: kubectl apply -f ./k8s/
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with: 
+          args: apply -f ./build/k8s/
 
       - name: Wait for pods to be ready
-        run: kubectl wait --for=condition=Ready pod --all --timeout=300s
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with: 
+          args: wait --for=condition=Ready pod --all --timeout=300s
 
 
           
