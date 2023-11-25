@@ -31,6 +31,7 @@ jobs:
           docker buildx inspect default --bootstrap
           docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-frontend:staging -f docker/Dockerfile.frontend .
           docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKER_USERNAME }}/devops-project-backend:staging -f docker/Dockerfile.backend .
+          docker buildx rm -f
   
   deploy-to-production:
     runs-on: ubuntu-latest
@@ -39,7 +40,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2 
-        
+
       - name: Apply Kubernetes deployment files
         uses: actions-hub/kubectl@master
         env:
