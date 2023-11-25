@@ -26,7 +26,7 @@ const RegisterPage = () => {
     const [validationMessage, setValidationMessage] = useState('');
 
     const registerUser = async (username, password, fullname) => {
-        const url = "/api/user"
+        const url = "http://backend.default.svc.cluster.local/user"
         const body = { username, password, fullname }
 
         try {
